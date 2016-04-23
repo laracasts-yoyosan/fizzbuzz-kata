@@ -23,11 +23,11 @@ class Fizzbuzz
 
     public function executeUpTo($number)
     {
-        $result = [];
-        foreach (range(1, $number) as $i) {
-            $result[] = $this->execute($i);
-        }
-
-        return $result;
+        return array_map(
+            function($i) {
+                return $this->execute($i);
+            },
+            range(1, $number)
+        );
     }
 }
